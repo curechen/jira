@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src", // 引用文件写路径时会自动加上该路径
     "target": "es5",
     "lib": [
       "dom",
