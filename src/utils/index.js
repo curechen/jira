@@ -1,4 +1,6 @@
-export const isFalsy = (val) => val === 0 ? false : !val
+import { useEffect, useState } from "react"
+
+export const isFalsy = (value) => value === 0 ? false : !value
 
 // 若为空值则在传参时不传该属性
 export const cleanObject = (object) => {
@@ -10,4 +12,20 @@ export const cleanObject = (object) => {
     }
   })
   return result
+}
+
+export const useMount = (callback) => {
+  useEffect(() => {
+    callback()
+  }, []) // 传空数组那么只会执行一次
+}
+
+export const useDebounce = (value, delay) => {
+  const [debounceValue, setDebounceValue] = useState(value)
+  useEffect(() => {
+    const timeout = setTimeout(() => setDebounceValue(value), delay)
+    return () => clearTimeout(timeout) // 清除副作用是在每次 Effect 前执行
+  }, [value])
+
+  return debounceValue // 保留有对数组的引用
 }
