@@ -1,4 +1,4 @@
-export const List = ({ list, setList }) => {
+export const List = ({ users, list, setList }) => {
   return (
     <table>
       <thead>
@@ -10,9 +10,9 @@ export const List = ({ list, setList }) => {
       <tbody>
         {
           list.map(project => (
-            <tr>
+            <tr key={project.id}>
               <td>{project.name}</td>
-              <td>{project.personName}</td>
+              <td>{users.find(user => user.id === project.personId)?.name || '未知'}</td>
             </tr>
           ))
         }
