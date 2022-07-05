@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 
-export const isFalsy = (value) => value === 0 ? false : !value
+export const isFalsy = (value: any) => value === 0 ? false : !value
 
 // 若为空值则在传参时不传该属性
-export const cleanObject = (object) => {
+export const cleanObject = (object: object) => {
   const result = {...object} // 浅拷贝，若有引用类型的值那么浅拷贝是会相互影响的
   Object.keys(result).forEach(key => {
     const value = result[key]
@@ -14,13 +14,13 @@ export const cleanObject = (object) => {
   return result
 }
 
-export const useMount = (callback) => {
+export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback()
   }, []) // 传空数组那么只会执行一次
 }
 
-export const useDebounce = (value, delay) => {
+export const useDebounce = (value: any, delay?: number) => {
   const [debounceValue, setDebounceValue] = useState(value)
   useEffect(() => {
     const timeout = setTimeout(() => setDebounceValue(value), delay)

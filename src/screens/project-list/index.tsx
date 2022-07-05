@@ -34,7 +34,7 @@ export const ProjectListScreen = () => {
   return (
     <>
       <SearchPanel users={users} param={param} setParam={setParam} />
-      <List users={users} list={list} setList={setList} />
+      <List users={users} list={list} />
     </>
   )
 }
