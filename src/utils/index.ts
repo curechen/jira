@@ -20,12 +20,12 @@ export const useMount = (callback: () => void) => {
   }, []) // 传空数组那么只会执行一次
 }
 
-export const useDebounce = (value: any, delay?: number) => {
+export const useDebounce = <V>(value: V, delay?: number) => {
   const [debounceValue, setDebounceValue] = useState(value)
   useEffect(() => {
     const timeout = setTimeout(() => setDebounceValue(value), delay)
     return () => clearTimeout(timeout) // 清除副作用是在每次 Effect 前执行
-  }, [value])
+  }, [value, delay])
 
   return debounceValue // 保留有对数组的引用
 }
