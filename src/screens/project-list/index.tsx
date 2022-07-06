@@ -26,7 +26,9 @@ export const ProjectListScreen = () => {
   useMount(() => {
     fetch(`${apiUrl}/users`).then(async response => {
       if (response.ok) {
-        setUsers(await response.json())
+        let data = await response.json()
+        console.log('data ===', data);
+        setUsers(data)
       }
     })
   })
