@@ -1,3 +1,6 @@
+/**
+ * 这里写的都是工具类函数，包括自定义的 hook
+ */
 import { useEffect, useState } from "react"
 
 export const isFalsy = (value: any) => value === 0 ? false : !value

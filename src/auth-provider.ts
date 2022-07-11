@@ -1,4 +1,6 @@
-// 在真实环境中,如果使用第三方 auth 服务的话,本文件就不需要开发者开发
+/**
+ * 在真实环境中,如果使用第三方 auth 服务的话,本文件就不需要开发者开发
+ */
 import { User } from 'screens/project-list/search-pannel'
 
 const apiUrl = process.env.REACT_APP_API_URL
